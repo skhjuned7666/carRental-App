@@ -56,14 +56,17 @@ const AboutSection = () => {
             </div>
             <div className='relative'>
               <div className='relative w-full h-96 rounded-2xl overflow-hidden'>
-                <div className='absolute inset-0 bg-gradient-to-r from-[#E50914] to-[#FF3838] rounded-2xl transform rotate-3'></div>
-                <div className='absolute inset-0 bg-gradient-to-r from-[#FF3838] to-[#E50914] rounded-2xl transform -rotate-3'></div>
-                <div className='absolute inset-4 bg-black rounded-xl flex items-center justify-center'>
-                  <div className='text-center'>
-                    <div className='w-24 h-12 bg-gradient-to-r from-[#E50914] to-[#FF3838] rounded-full mx-auto mb-4'></div>
-                    <div className='w-32 h-6 bg-gradient-to-r from-[#FF3838] to-[#E50914] rounded-full mx-auto'></div>
-                  </div>
-                </div>
+                {/* Mission Image */}
+                <img
+                  src='/cars/vission-mission/mission1.jpg'
+                  alt='Our Mission'
+                  className='w-full h-full object-cover'
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "/cars/vission-mission/vission.jpg";
+                  }}
+                />
+                <div className='absolute inset-0 bg-linear-to-t from-black/70 to-transparent'></div>
               </div>
             </div>
           </div>
@@ -71,14 +74,17 @@ const AboutSection = () => {
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-20'>
             <div className='relative order-2 lg:order-1'>
               <div className='relative w-full h-96 rounded-2xl overflow-hidden'>
-                <div className='absolute inset-0 bg-gradient-to-r from-[#2E2E2E] to-black rounded-2xl transform rotate-3'></div>
-                <div className='absolute inset-0 bg-gradient-to-r from-black to-[#2E2E2E] rounded-2xl transform -rotate-3'></div>
-                <div className='absolute inset-4 bg-black rounded-xl flex items-center justify-center'>
-                  <div className='text-center'>
-                    <div className='w-24 h-12 bg-gradient-to-r from-[#E50914] to-[#FF3838] rounded-full mx-auto mb-4'></div>
-                    <div className='w-32 h-6 bg-gradient-to-r from-[#FF3838] to-[#E50914] rounded-full mx-auto'></div>
-                  </div>
-                </div>
+                {/* Vision Image */}
+                <img
+                  src='/cars/vission-mission/vission.jpg'
+                  alt='Our Vision'
+                  className='w-full h-full object-cover'
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "/cars/vission-mission/mission1.jpg";
+                  }}
+                />
+                <div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent'></div>
               </div>
             </div>
             <div className='order-1 lg:order-2'>

@@ -28,6 +28,27 @@ const FeaturedCarsCarousel = () => {
       image: "/cars/7.jpg",
       features: ["Twin-Turbo V8", "Carbon Fiber", "Diablo Mode"],
     },
+    {
+      id: 4,
+      name: "Ferrari F8 Tributo",
+      price: "$450/day",
+      image: "/cars/2.jpg",
+      features: ["V8 Engine", "Aerodynamic Design", "Carbon Fiber"],
+    },
+    {
+      id: 5,
+      name: "Rolls Royce Phantom",
+      price: "$400/day",
+      image: "/cars/luxury cars/4.jpg",
+      features: ["V12 Engine", "Luxury Interior", "Bespoke Design"],
+    },
+    {
+      id: 6,
+      name: "Tesla Model S Plaid",
+      price: "$260/day",
+      image: "/cars/3.jpg",
+      features: ["Electric", "1,020 HP", "405 Mile Range"],
+    },
   ];
 
   // Auto slide for featured cars carousel

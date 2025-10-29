@@ -34,10 +34,14 @@ const CarDetailModal: React.FC<CarDetailModalProps> = ({
   if (!car) return null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} className='max-w-4xl w-full'>
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      className='w-full max-w-4xl md:max-w-5xl lg:max-w-6xl h-[80vh] md:h-[85vh]'
+      width='w-full max-w-4xl md:max-w-5xl lg:max-w-6xl'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 h-full'>
         {/* Car Image */}
-        <div className='relative w-full h-96 overflow-hidden rounded-2xl'>
+        <div className='relative w-full h-64 md:h-80 lg:h-full overflow-hidden rounded-2xl'>
           <img
             src={car.image}
             alt={`${car.name} ${car.model}`}
@@ -48,22 +52,27 @@ const CarDetailModal: React.FC<CarDetailModalProps> = ({
               target.src = "/cars/tempCars/bg.png";
             }}
           />
+          <div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent'></div>
         </div>
 
         {/* Car Details */}
-        <div>
+        <div className='flex flex-col h-full'>
           <div className='flex justify-between items-start mb-4'>
             <div>
-              <h2 className='text-3xl font-bold text-white'>{car.name}</h2>
+              <h2 className='text-2xl md:text-3xl font-bold text-white'>
+                {car.name}
+              </h2>
               <p className='text-gray-400 text-lg'>{car.model}</p>
             </div>
             <div className='text-right'>
-              <div className='text-3xl font-bold text-white'>{car.price}</div>
+              <div className='text-2xl md:text-3xl font-bold text-white'>
+                {car.price}
+              </div>
               <div className='text-gray-400'>/day</div>
             </div>
           </div>
 
-          <div className='flex items-center mb-6'>
+          <div className='flex items-center mb-4'>
             <div className='flex'>
               {[...Array(5)].map((_, i) => (
                 <svg
@@ -83,41 +92,54 @@ const CarDetailModal: React.FC<CarDetailModalProps> = ({
             <span className='text-gray-400 ml-2'>({car.reviews} reviews)</span>
           </div>
 
-          <p className='text-gray-300 mb-6'>{car.description}</p>
+          <div className='mb-6'>
+            <h3 className='text-xl font-bold text-white mb-2'>Description</h3>
+            <p className='text-gray-300'>{car.description}</p>
+          </div>
 
-          <Card className='mb-6'>
+          <Card className='mb-6 flex-grow'>
             <h3 className='text-xl font-bold text-white mb-4'>
               Specifications
             </h3>
-            <div className='grid grid-cols-2 gap-4'>
-              <div className='flex justify-between'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+              <div className='flex justify-between py-2 border-b border-[#2E2E2E]'>
                 <span className='text-gray-400'>Engine</span>
-                <span className='text-white'>{car.specs.engine}</span>
+                <span className='text-white font-medium'>
+                  {car.specs.engine}
+                </span>
               </div>
-              <div className='flex justify-between'>
+              <div className='flex justify-between py-2 border-b border-[#2E2E2E]'>
                 <span className='text-gray-400'>Fuel</span>
-                <span className='text-white'>{car.specs.fuel}</span>
+                <span className='text-white font-medium'>{car.specs.fuel}</span>
               </div>
-              <div className='flex justify-between'>
+              <div className='flex justify-between py-2 border-b border-[#2E2E2E]'>
                 <span className='text-gray-400'>Horsepower</span>
-                <span className='text-white'>{car.specs.horsepower}</span>
+                <span className='text-white font-medium'>
+                  {car.specs.horsepower}
+                </span>
               </div>
-              <div className='flex justify-between'>
+              <div className='flex justify-between py-2 border-b border-[#2E2E2E]'>
                 <span className='text-gray-400'>Transmission</span>
-                <span className='text-white'>{car.specs.transmission}</span>
+                <span className='text-white font-medium'>
+                  {car.specs.transmission}
+                </span>
               </div>
-              <div className='flex justify-between'>
+              <div className='flex justify-between py-2 border-b border-[#2E2E2E]'>
                 <span className='text-gray-400'>Mileage</span>
-                <span className='text-white'>{car.specs.mileage}</span>
+                <span className='text-white font-medium'>
+                  {car.specs.mileage}
+                </span>
               </div>
-              <div className='flex justify-between'>
+              <div className='flex justify-between py-2 border-b border-[#2E2E2E]'>
                 <span className='text-gray-400'>Seats</span>
-                <span className='text-white'>{car.specs.seats}</span>
+                <span className='text-white font-medium'>
+                  {car.specs.seats}
+                </span>
               </div>
             </div>
           </Card>
 
-          <div className='flex gap-4'>
+          <div className='flex gap-4 mt-auto'>
             <Button variant='outline' fullWidth onClick={onClose}>
               Close
             </Button>

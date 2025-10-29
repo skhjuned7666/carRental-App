@@ -275,7 +275,7 @@ const Header = () => {
                 setIsLoginOpen(false);
                 setIsRegisterOpen(true);
               }}
-              className='font-medium text-[#E50914] hover:text-[#FF3838]'>
+              className='font-medium text-[#E50914] hover:text-[#FF3838] transition-colors duration-200'>
               create a new account
             </button>
           </p>
@@ -304,7 +304,7 @@ const Header = () => {
                 <div className='text-sm'>
                   <a
                     href='#'
-                    className='font-medium text-[#E50914] hover:text-[#FF3838]'>
+                    className='font-medium text-[#E50914] hover:text-[#FF3838] transition-colors duration-200'>
                     Forgot your password?
                   </a>
                 </div>
@@ -372,7 +372,7 @@ const Header = () => {
             <div>
               <a
                 href='#'
-                className='w-full inline-flex justify-center py-2 px-4 border border-[#2E2E2E] rounded-lg shadow-sm bg-black text-sm font-medium text-gray-300 hover:bg-[#2E2E2E]'>
+                className='w-full inline-flex justify-center py-2 px-4 border border-[#2E2E2E] rounded-lg shadow-sm bg-black text-sm font-medium text-gray-300 hover:bg-[#2E2E2E] transition-colors duration-200'>
                 <div className='w-5 h-5 text-[#E50914]'>
                   <svg
                     className='h-5 w-5'
@@ -386,7 +386,7 @@ const Header = () => {
             <div>
               <a
                 href='#'
-                className='w-full inline-flex justify-center py-2 px-4 border border-[#2E2E2E] rounded-lg shadow-sm bg-black text-sm font-medium text-gray-300 hover:bg-[#2E2E2E]'>
+                className='w-full inline-flex justify-center py-2 px-4 border border-[#2E2E2E] rounded-lg shadow-sm bg-black text-sm font-medium text-gray-300 hover:bg-[#2E2E2E] transition-colors duration-200'>
                 <div className='w-5 h-5 text-[#E50914]'>
                   <svg
                     className='h-5 w-5'
@@ -428,7 +428,7 @@ const Header = () => {
                 setIsRegisterOpen(false);
                 setIsLoginOpen(true);
               }}
-              className='font-medium text-[#E50914] hover:text-[#FF3838]'>
+              className='font-medium text-[#E50914] hover:text-[#FF3838] transition-colors duration-200'>
               sign in to your existing account
             </button>
           </p>
@@ -550,7 +550,7 @@ const Header = () => {
             <div>
               <a
                 href='#'
-                className='w-full inline-flex justify-center py-2 px-4 border border-[#2E2E2E] rounded-lg shadow-sm bg-black text-sm font-medium text-gray-300 hover:bg-[#2E2E2E]'>
+                className='w-full inline-flex justify-center py-2 px-4 border border-[#2E2E2E] rounded-lg shadow-sm bg-black text-sm font-medium text-gray-300 hover:bg-[#2E2E2E] transition-colors duration-200'>
                 <div className='w-5 h-5 text-[#E50914]'>
                   <svg
                     className='h-5 w-5'
@@ -564,7 +564,7 @@ const Header = () => {
             <div>
               <a
                 href='#'
-                className='w-full inline-flex justify-center py-2 px-4 border border-[#2E2E2E] rounded-lg shadow-sm bg-black text-sm font-medium text-gray-300 hover:bg-[#2E2E2E]'>
+                className='w-full inline-flex justify-center py-2 px-4 border border-[#2E2E2E] rounded-lg shadow-sm bg-black text-sm font-medium text-gray-300 hover:bg-[#2E2E2E] transition-colors duration-200'>
                 <div className='w-5 h-5 text-[#E50914]'>
                   <svg
                     className='h-5 w-5'
