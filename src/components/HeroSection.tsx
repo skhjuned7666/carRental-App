@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import CarSearchBar from "@/components/CarSearchBar";
 
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -11,20 +12,9 @@ const HeroSection = () => {
     "/heroImgs/bg1.jpg",
     "/heroImgs/bg2.png",
     "/heroImgs/bg3.jpg",
-    // "/cars/heroImgs/bg4.png",
+    "/heroImgs/bg4.png",
     "/heroImgs/bg5.png",
-    // "/cars/heroImgs/bg6.png",
-    // Adding more hero images from Unsplash
-    "/cars/1.jpg",
-    "/cars/2.jpg",
-    "/cars/3.jpg",
-    "/cars/4.jpg",
-    "/cars/5.jpg",
-    "/cars/6.jpg",
-    "/cars/7.jpg",
-    "/cars/8.jpg",
-    "/cars/9.jpg",
-    "/cars/10.jpg",
+    "/heroImgs/bg6.jpg",
   ];
 
   useEffect(() => {
@@ -72,8 +62,11 @@ const HeroSection = () => {
           />
         ))}
       </div>
-
-      <div className='container mx-auto relative z-10 md:pt-0 pt-30 pb-0'>
+      {/* Car Search Bar - positioned above the hero content */}
+      <div className='absolute md:top-20 top-0 left-0 right-0 z-20 px-4 md:px-8 hidden md:block'>
+        <CarSearchBar />
+      </div>
+      <div className='container top-25 mx-auto relative z-10 md:pt-0 pt-30 pb-0'>
         <div className='flex flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-120px)]'>
           <div className='lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left'>
             <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white'>
