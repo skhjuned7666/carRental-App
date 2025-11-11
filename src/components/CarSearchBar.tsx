@@ -119,7 +119,7 @@ const CarSearchBar = () => {
   return (
     <div
       ref={dropdownRef}
-      className='relative bg-gradient-to-br from-[#2E2E2E]/80 to-black backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-[#2E2E2E] max-w-6xl mx-auto mb-12'>
+      className='relative bg-gradient-to-br from-[#2E2E2E]/20 to-black/20 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-[#2E2E2E] max-w-6xl mx-auto mb-12'>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {/* Car Type Dropdown */}
         <div className='relative'>

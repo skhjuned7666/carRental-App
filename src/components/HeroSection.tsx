@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import CarSearchBar from "@/components/CarSearchBar";
+import GridScan from "@/components/GridScan"; // Added GridScan import
 
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -38,6 +39,22 @@ const HeroSection = () => {
     <section
       id='home'
       className='relative min-h-screen flex items-center md:py-32 py-12 px-4 md:px-8 overflow-hidden md:pt-24 pt-10 bg-[#0E0E0E]'>
+      {/* GridScan background effect */}
+      <div className='absolute inset-0 z-0'>
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#392e4e"
+          gridScale={0.1}
+          scanColor="#FF9FFC"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
+        />
+      </div>
+      
       <div className='absolute inset-0 z-0'>
         <div className='absolute top-1/4 left-1/4 w-96 h-96 bg-[#E50914] rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-blob'></div>
         <div className='absolute top-1/3 right-1/4 w-96 h-96 bg-[#FF3838] rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-blob animation-delay-2000'></div>
