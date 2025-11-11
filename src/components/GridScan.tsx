@@ -1,6 +1,12 @@
-import { useEffect, useRef } from 'react';
-import { EffectComposer, RenderPass, EffectPass, BloomEffect, ChromaticAberrationEffect } from 'postprocessing';
-import * as THREE from 'three';
+import { useEffect, useRef } from "react";
+import {
+  EffectComposer,
+  RenderPass,
+  EffectPass,
+  BloomEffect,
+  ChromaticAberrationEffect,
+} from "postprocessing";
+import * as THREE from "three";
 
 const vert = `
 varying vec2 vUv;
@@ -270,13 +276,13 @@ void main(){
 const GridScan = ({
   sensitivity = 0.55,
   lineThickness = 1,
-  linesColor = '#392e4e',
-  scanColor = '#FF9FFC',
+  linesColor = "#392e4e",
+  scanColor = "#FF9FFC",
   scanOpacity = 0.4,
   gridScale = 0.1,
-  lineStyle = 'solid',
+  lineStyle = "solid",
   lineJitter = 0.1,
-  scanDirection = 'pingpong',
+  scanDirection = "pingpong",
   enablePost = true,
   bloomIntensity = 0.6,
   chromaticAberration = 0.002,
@@ -286,8 +292,8 @@ const GridScan = ({
   scanPhaseTaper = 0.9,
   scanDuration = 2.0,
   scanDelay = 2.0,
-  className = '',
-  style = {}
+  className = "",
+  style = {},
 }: {
   sensitivity?: number;
   lineThickness?: number;
@@ -327,17 +333,20 @@ const GridScan = ({
     camera.position.z = 1;
 
     // Create renderer
-    const renderer = new THREE.WebGLRenderer({ 
-      antialias: true, 
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
       alpha: true,
-      powerPreference: "high-performance"
+      powerPreference: "high-performance",
     });
-    
-    renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
+
+    renderer.setSize(
+      containerRef.current.clientWidth,
+      containerRef.current.clientHeight
+    );
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    
+
     // Clear container and append renderer
-    containerRef.current.innerHTML = '';
+    containerRef.current.innerHTML = "";
     containerRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
@@ -355,10 +364,19 @@ const GridScan = ({
         uLinesColor: { value: new THREE.Color(linesColor) },
         uScanColor: { value: new THREE.Color(scanColor) },
         uGridScale: { value: gridScale },
-        uLineStyle: { value: lineStyle === 'solid' ? 0 : lineStyle === 'dashed' ? 1 : 2 },
+        uLineStyle: {
+          value: lineStyle === "solid" ? 0 : lineStyle === "dashed" ? 1 : 2,
+        },
         uLineJitter: { value: lineJitter },
         uScanOpacity: { value: scanOpacity },
-        uScanDirection: { value: scanDirection === 'forward' ? 0 : scanDirection === 'backward' ? 1 : 2 },
+        uScanDirection: {
+          value:
+            scanDirection === "forward"
+              ? 0
+              : scanDirection === "backward"
+              ? 1
+              : 2,
+        },
         uNoise: { value: noiseIntensity },
         uBloomOpacity: { value: bloomIntensity },
         uScanGlow: { value: scanGlow },
@@ -367,13 +385,13 @@ const GridScan = ({
         uScanDuration: { value: scanDuration },
         uScanDelay: { value: scanDelay },
         uScanStarts: { value: new Array(8).fill(0) },
-        uScanCount: { value: 0 }
+        uScanCount: { value: 0 },
       },
       transparent: true,
       depthWrite: false,
-      depthTest: false
+      depthTest: false,
     });
-    
+
     materialRef.current = material;
 
     // Create quad
@@ -392,7 +410,7 @@ const GridScan = ({
 
       if (bloomIntensity > 0) {
         bloomEffect = new BloomEffect({
-          intensity: bloomIntensity
+          intensity: bloomIntensity,
         });
         composer.addPass(new EffectPass(camera, bloomEffect));
         bloomRef.current = bloomEffect;
@@ -400,46 +418,46 @@ const GridScan = ({
 
       if (chromaticAberration > 0) {
         chromaEffect = new ChromaticAberrationEffect({
-          offset: new THREE.Vector2(chromaticAberration, chromaticAberration)
+          offset: new THREE.Vector2(chromaticAberration, chromaticAberration),
         });
         composer.addPass(new EffectPass(camera, chromaEffect));
         chromaRef.current = chromaEffect;
       }
-      
+
       composerRef.current = composer;
     }
 
     // Handle resize
     const handleResize = () => {
       if (!containerRef.current) return;
-      
+
       const width = containerRef.current.clientWidth;
       const height = containerRef.current.clientHeight;
-      
+
       camera.left = -1;
       camera.right = 1;
       camera.top = 1;
       camera.bottom = -1;
       camera.updateProjectionMatrix();
-      
+
       renderer.setSize(width, height);
       if (materialRef.current) {
         materialRef.current.uniforms.iResolution.value.set(width, height, 1);
       }
-      
+
       if (composer) {
         composer.setSize(width, height);
       }
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Animation loop
     let startTime = Date.now();
     const animate = () => {
       rafRef.current = requestAnimationFrame(animate);
-      
+
       const elapsed = (Date.now() - startTime) / 1000;
       if (materialRef.current) {
         materialRef.current.uniforms.iTime.value = elapsed;
@@ -460,12 +478,12 @@ const GridScan = ({
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current);
       }
-      window.removeEventListener('resize', handleResize);
-      
+      window.removeEventListener("resize", handleResize);
+
       if (composer) {
         composer.dispose();
       }
-      
+
       geometry.dispose();
       material.dispose();
       renderer.dispose();
@@ -487,18 +505,18 @@ const GridScan = ({
     scanPhaseTaper,
     scanDuration,
     scanDelay,
-    enablePost
+    enablePost,
   ]);
 
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       className={className}
       style={{
-        width: '100%',
-        height: '100%',
-        position: 'relative',
-        ...style
+        width: "100%",
+        height: "100%",
+        position: "relative",
+        ...style,
       }}
     />
   );

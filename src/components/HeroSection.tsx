@@ -2,14 +2,13 @@
 
 import { useState, useEffect } from "react";
 import CarSearchBar from "@/components/CarSearchBar";
-import GridScan from "@/components/GridScan"; // Added GridScan import
+import GridScan from "@/components/GridScan";
 
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // List of image paths from the heroImgs folder
   const heroImages = [
-    // "/cars/heroImgs/bg.png",
     "/heroImgs/bg1.jpg",
     "/heroImgs/bg2.png",
     "/heroImgs/bg3.jpg",
@@ -48,10 +47,6 @@ const HeroSection = () => {
           gridScale={0.1}
           scanColor="#FF9FFC"
           scanOpacity={0.4}
-          enablePost
-          bloomIntensity={0.6}
-          chromaticAberration={0.002}
-          noiseIntensity={0.01}
         />
       </div>
       
