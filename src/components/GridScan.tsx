@@ -419,6 +419,8 @@ const GridScan = ({
       if (chromaticAberration > 0) {
         chromaEffect = new ChromaticAberrationEffect({
           offset: new THREE.Vector2(chromaticAberration, chromaticAberration),
+          radialModulation: false,
+          modulationOffset: 0.15,
         });
         composer.addPass(new EffectPass(camera, chromaEffect));
         chromaRef.current = chromaEffect;
